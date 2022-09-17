@@ -1,5 +1,5 @@
-$text-color: #2d2d2d !default;
-$popover-bg: #ffffff !default;
+$text-color: #fff !default;
+$popover-bg: #282B33 !default;
 $stage-bg: #ffffff !default;
 $button-bg: #f1f1f1 !default;
 $disabled-btn-color: #808080 !default;
@@ -14,6 +14,77 @@ $highlighted-element-z-index: 100004 !default;
 $animation-ms: 300 !default;
 $animation-sec: ($animation-ms / 1000) * 1s !default;
 
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes scale2 {
+  0% {
+    transform: scale(1);
+    opacity: .5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.gtr-driver-btn {
+  font-size: 14px;
+  font-family: PingFangSC-Semibold;
+  height: 28px !important;
+  border-radius: 4px !important;
+  border: none !important;
+  text-shadow: none !important;
+}
+
+.gtr-popover-tip {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background: #FF7A45;
+  //border: 12px solid rgba(255,122,69,0.20);
+  border-radius: 50%;
+  border: none !important;
+
+  &::after, &::before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FF7A45;
+    opacity: 0.3;
+    top: -12px;
+    left: -12px;
+  }
+
+  &::after {
+    animation: scale 2s infinite;
+  }
+
+  &::before {
+    animation: scale2 2s infinite;
+  }
+
+  &::after, &::before {
+    background: linear-gradient(rgba(247, 106, 49, 0) 2%,
+      rgba(247, 106, 49, 0.4) 20%, rgba(247, 106, 49, 0.5) 40%,
+      rgba(247, 106, 49, 0.6) 90%, rgba(247, 106, 49, 0.8) 95%, rgb(247, 106, 49) 100%);
+  }
+
+  //background-color: none !important;
+}
+
 div#driver-popover-item {
   display: none;
   position: absolute;
@@ -21,7 +92,7 @@ div#driver-popover-item {
   color: $text-color;
   margin: 0;
   padding: 15px;
-  border-radius: 5px;
+  border-radius: 8px;
   min-width: 250px;
   max-width: 300px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
@@ -85,7 +156,7 @@ div#driver-popover-item {
     }
 
     &.top {
-      top: -10px;
+      top: -20px;
       border-top-color: transparent;
       border-right-color: transparent;
       border-bottom-color: $popover-bg;
@@ -103,6 +174,8 @@ div#driver-popover-item {
     &.mid-center {
       display: none;
     }
+
+    @extend .gtr-popover-tip;
   }
 
   .driver-popover-footer {
@@ -133,6 +206,20 @@ div#driver-popover-item {
 
     .driver-close-btn {
       float: left;
+      display: none; // 隐藏
+    }
+
+    .driver-step {
+      font-size: 14px;
+      opacity: 0.87;
+      color: #fff;
+      .driver-all {
+
+      }
+
+      .driver-current {
+        color: #F76A31;
+      }
     }
 
     .driver-close-only-btn {
@@ -142,25 +229,39 @@ div#driver-popover-item {
     .driver-btn-group {
       float: right;
     }
+
+    .driver-next-btn {
+      @extend .gtr-driver-btn;
+      background: #F76A31 !important;
+      color: #FFFFFF !important;
+    }
+
+    .driver-prev-btn {
+      @extend .gtr-driver-btn;
+      color: #F76A31;
+    }
   }
 
   .driver-popover-title {
-    font: 19px/normal sans-serif;
     margin: 0 0 5px;
-    font-weight: bold;
     display: block;
     position: relative;
     line-height: 1.5;
     zoom: 1;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: normal;
   }
 
   .driver-popover-description {
     margin-bottom: 0;
-    font: 14px/normal sans-serif;
     line-height: 1.5;
     color: $text-color;
     font-weight: normal;
     zoom: 1;
+    opacity: 0.87;
+    font-size: 14px;
+    padding: 16px 0;
   }
 }
 
@@ -231,4 +332,14 @@ div#driver-highlighted-element-stage {
   transform-style: flat !important;
   transform-box: border-box !important;
   will-change: unset !important;
+}
+
+.driver-close-icon {
+  position: absolute;
+  display: inline-block;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
 }

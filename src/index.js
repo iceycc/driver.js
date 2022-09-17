@@ -14,7 +14,7 @@ import {
   SHOULD_ANIMATE_OVERLAY,
   SHOULD_OUTSIDE_CLICK_CLOSE,
   SHOULD_OUTSIDE_CLICK_NEXT,
-  ALLOW_KEYBOARD_CONTROL,
+  ALLOW_KEYBOARD_CONTROL, CLASS_CLOSE_ICON,
 } from './common/constants';
 import Stage from './core/stage';
 import { isDomElement } from './common/utils';
@@ -109,6 +109,7 @@ export default class Driver {
    * @private
    */
   onClick(e) {
+    console.log(e.target);
     if (!this.isActivated || !this.hasHighlightedElement()) {
       return;
     }
@@ -139,8 +140,9 @@ export default class Driver {
     const nextClicked = e.target.classList.contains(CLASS_NEXT_STEP_BTN);
     const prevClicked = e.target.classList.contains(CLASS_PREV_STEP_BTN);
     const closeClicked = e.target.classList.contains(CLASS_CLOSE_BTN);
+    const closeIcon = e.target.classList.contains(CLASS_CLOSE_ICON);
 
-    if (closeClicked) {
+    if (closeClicked || closeIcon) {
       this.reset();
       return;
     }

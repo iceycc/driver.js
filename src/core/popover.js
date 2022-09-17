@@ -1,8 +1,9 @@
 import Element from './element';
 import {
+  CLASS_ALL,
   CLASS_BTN_DISABLED,
   CLASS_CLOSE_BTN,
-  CLASS_CLOSE_ONLY_BTN,
+  CLASS_CLOSE_ONLY_BTN, CLASS_CURRENT,
   CLASS_NEXT_STEP_BTN,
   CLASS_POPOVER_DESCRIPTION,
   CLASS_POPOVER_FOOTER,
@@ -35,9 +36,9 @@ export default class Popover extends Element {
       showButtons: true,
       closeBtnText: 'Close',
       doneBtnText: 'Done',
-      startBtnText: 'Next &rarr;',
-      nextBtnText: 'Next &rarr;',
-      prevBtnText: '&larr; Previous',
+      startBtnText: 'Next;',
+      nextBtnText: 'Next',
+      prevBtnText: 'Previous',
       ...options,
     };
 
@@ -66,6 +67,8 @@ export default class Popover extends Element {
     this.nextBtnNode = popover.querySelector(`.${CLASS_NEXT_STEP_BTN}`);
     this.prevBtnNode = popover.querySelector(`.${CLASS_PREV_STEP_BTN}`);
     this.closeBtnNode = popover.querySelector(`.${CLASS_CLOSE_BTN}`);
+    this.stepCurrentNode = popover.querySelector(`.${CLASS_CURRENT}`);
+    this.stepAllNode = popover.querySelector(`.${CLASS_ALL}`);
   }
 
   /**
@@ -128,7 +131,8 @@ export default class Popover extends Element {
     // Set the title and descriptions
     this.titleNode.innerHTML = this.options.title;
     this.descriptionNode.innerHTML = this.options.description || '';
-
+    this.stepAllNode.innerHTML = this.options.totalCount;
+    this.stepCurrentNode.innerHTML = `${this.options.currentIndex + 1}`;
     this.renderFooter();
 
     // Position the popover around the given position

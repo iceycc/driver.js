@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const animatedTourDriver = new Driver({
     animate: true,
-    opacity: 0.8,
+    opacity: 0.2,
     padding: 5,
     showButtons: true,
   });

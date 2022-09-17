@@ -1,7 +1,7 @@
 {
-  "name": "driver.js",
-  "version": "0.9.8",
-  "description": "A light-weight, no-dependency, vanilla JavaScript library to drive the user's focus across the page",
+  "name": "@didi/gtr-driver.js",
+  "version": "1.0.0",
+  "description": "滴滴soda定制。A light-weight, no-dependency, vanilla JavaScript library to drive the user's focus across the page",
   "main": "dist/driver.min.js",
   "types": "types/index.d.ts",
   "scripts": {
@@ -15,9 +15,10 @@
   },
   "homepage": "https://github.com/kamranahmedse/driver.js#readme",
   "repository": "https://github.com/kamranahmedse/driver.js",
-  "author": "Kamran Ahmed <kamranahmed.se@gmail.com>",
+  "author": "Kamran Ahmed <kamranahmed.se@gmail.com>; wangbingyang@didiglobal.com",
   "license": "MIT",
   "devDependencies": {
+    "@babel/compat-data": "^7.9.0",
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
