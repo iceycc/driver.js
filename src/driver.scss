@@ -204,6 +204,10 @@ div#driver-popover-item {
       pointer-events: none;
     }
 
+    button.driver-display-none {
+      display: none !important;
+    }
+
     .driver-close-btn {
       float: left;
       display: none; // 隐藏

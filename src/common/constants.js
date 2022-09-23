@@ -32,6 +32,7 @@ export const CLASS_ALL = 'driver-all';
 export const CLASS_NEXT_STEP_BTN = 'driver-next-btn';
 export const CLASS_PREV_STEP_BTN = 'driver-prev-btn';
 export const CLASS_BTN_DISABLED = 'driver-disabled';
+export const CLASS_BTN_NONE = 'driver-display-none'; // 隐藏
 export const CLASS_CLOSE_ONLY_BTN = 'driver-close-only-btn';
 export const CLASS_NAVIGATION_BTNS = 'driver-navigation-btns';
 
@@ -49,6 +50,7 @@ export const POPOVER_HTML = (className = '') => `
     <div class="${CLASS_POPOVER_DESCRIPTION}">Popover Description</div>
     ${closeSVG}
     <div class="driver-clearfix ${CLASS_POPOVER_FOOTER}">
+      <!--  这个按钮隐藏了    -->
       <button class="${CLASS_CLOSE_BTN}">Close</button>
       <span class="${CLASS_STEP}"><span class="${CLASS_CURRENT}">1</span>/<span class="${CLASS_ALL}">4</span></span>
       <span class="driver-btn-group ${CLASS_NAVIGATION_BTNS}">

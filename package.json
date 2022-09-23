@@ -1,6 +1,6 @@
 {
   "name": "@didi/gtr-driver.js",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "滴滴soda定制。A light-weight, no-dependency, vanilla JavaScript library to drive the user's focus across the page",
   "main": "dist/driver.min.js",
   "types": "types/index.d.ts",

@@ -1,7 +1,7 @@
 import Element from './element';
 import {
   CLASS_ALL,
-  CLASS_BTN_DISABLED,
+  CLASS_BTN_DISABLED, CLASS_BTN_NONE,
   CLASS_CLOSE_BTN,
   CLASS_CLOSE_ONLY_BTN, CLASS_CURRENT,
   CLASS_NEXT_STEP_BTN,
@@ -223,7 +223,8 @@ export default class Popover extends Element {
 
     this.footerNode.style.display = 'block';
     if (this.options.isFirst) {
-      this.prevBtnNode.classList.add(CLASS_BTN_DISABLED);
+      this.prevBtnNode.classList.add(CLASS_BTN_NONE);
+      // this.prevBtnNode.classList.add(CLASS_BTN_DISABLED);
       this.nextBtnNode.innerHTML = this.options.startBtnText;
     } else {
       this.prevBtnNode.classList.remove(CLASS_BTN_DISABLED);

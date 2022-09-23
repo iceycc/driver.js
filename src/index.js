@@ -109,7 +109,6 @@ export default class Driver {
    * @private
    */
   onClick(e) {
-    console.log(e.target);
     if (!this.isActivated || !this.hasHighlightedElement()) {
       return;
     }
